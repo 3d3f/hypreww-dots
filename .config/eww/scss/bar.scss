@@ -1,0 +1,28 @@
+.bar-widget {
+    background-color: $surface;
+    border-radius: 1rem;
+    color: $onPrimary;
+    box-shadow: 0 0 0px 0px $shadow;
+    padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+    margin-bottom: 0.0rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.barcorner {
+    background-color: transparent;
+    padding: 25px;
+    border-radius: 100%;
+  
+    &.left {
+      box-shadow: -22px -30px 0px 0px $surface;
+    }
+  
+    &.right {
+      box-shadow: 25px -30px 0px 0px $surface;  
+    }
+  }

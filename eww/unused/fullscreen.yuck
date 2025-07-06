@@ -1,9 +1,0 @@
-(defwidget fullscreen []
-    (button 
-        :onclick "hyprctl dispatch fullscreen" 
-        :class "fullscreen" 
-        
-        "")
-)
-
-;; esempio di come cambiare cursore :cursor "pointer"

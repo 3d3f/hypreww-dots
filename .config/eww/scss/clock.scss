@@ -1,0 +1,30 @@
+.clock-box {
+    padding: 0 0.3rem 0 0.1rem;
+}
+
+.clock {
+    background-color: transparentize($surfaceVariant, 0.6);
+    color: $onSurface;
+    border-radius: 3rem;
+    padding: 0 0.5rem 0 0.7rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.notification-icon {
+    padding: 0 0.4rem 0 0.3rem;
+    font-size: 1.05rem;
+}
+
+.weath-icon {
+    padding: 0 0.6rem 0 0rem;
+    font-size: 1.1rem;
+    margin-top: 0rem;
+}
+
+.centerbox {
+    background-color: transparentize($surfaceVariant, 0.8);
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+}

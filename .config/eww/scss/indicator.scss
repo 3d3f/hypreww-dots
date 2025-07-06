@@ -1,0 +1,63 @@
+
+.clipindbox  {
+    background-color: $onSecondary;
+    border-top-left-radius: 1.3rem;
+    border-top-right-radius: 3rem;
+    border-bottom-left-radius: 1.3rem;
+    border-bottom-right-radius: 3rem;   
+    margin: 0 1rem 0 0;
+}
+
+
+.indicator {
+    background-color: $primaryContainer;
+    border-radius: 3rem;
+    padding: 0 0.6rem 0 0.5rem;
+    margin: 0 0rem 0 0.7rem;
+    transition: 0s;
+}
+
+.indicator-icon {
+    margin: 0.1rem 0rem 0 0.5rem;
+    font-size: 1.2rem;
+    color: $onSurface;
+    padding: 0 0.9rem 0 0rem;
+}
+
+
+.indicator-icon-bat {
+    margin: 0 0rem 0 1rem;
+    font-size: 1.2rem;
+    color: $onSurface;
+    padding: 0 0.5rem 0 0rem;
+}
+
+.indicator-icon-rec {
+    margin: 0.02rem 0.7rem 0 0rem;
+    font-size: 1.3rem;
+    color: $error;
+    padding: 0 0rem 0 0.2rem;
+}
+
+.indicator-icon-mic {
+    margin: 0.1rem 0.1rem 0 0.6rem;
+    font-size: 1.3rem;
+    color: $onSurface;
+    padding: 0 0.15rem 0 0.3rem;
+}
+
+
+.indicator-icon-theme {
+    margin: 0.1rem 0rem 0 0rem;
+    font-size: 1.3rem;
+    color: $onSurface;
+    padding: 0 0rem 0 0.3rem;
+}
+
+
+.indicator-icon-net {
+    margin: 0.1rem 0rem 0 0.4rem;
+    font-size: 1.25rem;
+    color: $onSurface;
+    padding: 0 0.15rem 0 0.4rem;
+}

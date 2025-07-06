@@ -1,0 +1,129 @@
+;;WINDOWS
+
+(defwindow screenshot
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry
+                    :anchor "top center"
+                    :x "0"
+                )
+    :namespace "eww2"
+    (screenshot)
+)
+
+(defwindow screencorner-left
+  :stacking "fg"
+      :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "66.7%"
+              :y "0px"
+              :anchor "top left")
+  (box :class "screencorner left")  
+)
+
+(defwindow screencorner-right
+  :stacking "fg"
+      :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "66.6%"
+              :y "0px"
+              :anchor "top right")
+  (box :class "screencorner right")  
+)
+
+;;WIDGETS
+
+(defwidget screenshot []
+    (box :orientation "v"         :class "screenshot-box" :space-evenly false
+    (box 
+        :orientation "h" 
+        (box 
+            :orientation "v" :space-evenly false
+            (button
+                :onclick "scripts/toggle_screenshot.sh && hyprshot -m region -o ~/Pictures/Screenshots &"
+                :class "screen-button1"
+                (label :text "" :class "screen1-label")
+            )
+            (label :text "Select Area" :class "select")
+        )
+        (box 
+            :orientation "v" :space-evenly false
+            (button
+                :onclick "scripts/toggle_screenshot.sh && hyprshot -m window -o ~/Pictures/Screenshots &"
+                :class "screen-button2"
+                (label :text "" :class "screen2-label")
+            )
+                        (label :text "Select Window" :class "window")
+        )
+        (box 
+            :orientation "v" :space-evenly false
+            (button
+                :onclick "scripts/toggle_screenshot.sh && hyprshot -m output -o ~/Pictures/Screenshots &"
+                :class "screen-button3"
+                (label :text "󰹑" :class "screen3-label")
+            )
+            (label :text "Screen" :class "screen")
+        ))
+                      (box :orientation "h"  :halign "center"
+            (button :onclick "nautilus ~/Pictures/Screenshots &" :class "screenfolder"
+            (label :text "Open folder " :class "screentext")))
+    )
+      
+)
+
+
+(defwidget screenshot-bar []
+  (eventbox
+    :onclick "scripts/toggle_screenshot.sh &"
+    (button
+      :class "screenshot-bar"
+      ""
+    )
+  )
+)
+
+
+(defwidget screenshot-center []
+    (box 
+        :orientation "h" 
+        :class "screenshot-box"
+        (box 
+            :orientation "h" 
+            (button
+                :onclick "scripts/toggle_screenshot.sh && hyprshot -m region -o ~/Pictures/Screenshots &"
+                :class "screen-button"
+                (label :text "" :class "screen1-label")
+            )
+        )
+        (box 
+            :orientation "h" 
+            (button
+                :onclick "scripts/toggle_screenshot.sh && hyprshot -m window -o ~/Pictures/Screenshots &"
+                :class "screen-button"
+                (label :text "" :class "screen2-label")
+            )
+        )
+        (box 
+            :orientation "h" 
+            (button
+                :onclick "scripts/toggle_screenshot.sh && hyprshot -m output -o ~/Pictures/Screenshots &"
+                :class "screen-button"
+                (label :text "󰹑" :class "screen3-label")
+            )
+        )
+    )
+)
+
+(defwindow screenshot-closer
+    :monitor 0
+    :stacking "fg"
+    :namespace "eww3"
+    :geometry (geometry :width "100%" :height "100%")
+    (closerscreenshot :window "screenshot")
+)
+
+(defwidget closerscreenshot [window]
+  (eventbox :onclick "eww close ${window}-closer && scripts/toggle_screenshot.sh &"))
+

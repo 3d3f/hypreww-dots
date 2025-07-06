@@ -1,0 +1,46 @@
+
+.workspaces {
+    border-radius: 2rem;
+    padding: 0;
+    margin: 0rem;
+    background-color: $primaryContainer;
+}
+
+.workbox {
+    padding: 0 0.2rem;
+    margin: 0rem;
+}
+
+
+
+.workspace {
+    border-radius: 1rem;
+    background-color: $onSecondary;
+    margin: 0.35rem 0.25rem;
+    padding: 0 0.8rem;
+    transition: 0s;
+
+    &.current {
+        background-color: $onPrimaryContainer;
+        padding: 0 2rem;
+    }
+
+    &.urgent {
+        background-color: $error;
+    }
+
+    &.empty {
+        background-color: $onBackground;
+        padding: 0rem 0.2rem 0rem 0.2rem;
+        margin: 0.8rem 0.3rem 0.8rem 0.3rem;
+    }
+
+    &.special {
+        background-color:  transparentize($primary, 0.6);;
+    }
+}
+
+
+.workspace:hover {
+    background-color: #09ff00;
+}

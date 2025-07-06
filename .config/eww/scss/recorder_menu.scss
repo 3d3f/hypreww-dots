@@ -1,0 +1,104 @@
+
+
+.recorder_menu_box {
+    background-color: $surface;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    padding: 1rem;
+    color: $onSurface;
+    margin: 0rem;
+    padding: 0 1.5rem 1.2rem 1.5rem;
+}
+
+.recorder_menu_icon {
+    color: $error;
+    font-size: 3.4rem;
+}
+
+.recorder_menu_label {
+    font-size: 1.45rem;
+    margin-bottom: 1rem;
+}
+
+.recorder_menu_checkbox_label {
+    font-size: 1.2rem;
+}
+
+.recorder_menu_checkbox_box {
+    margin-top: 0.25rem;
+    background-color: transparentize($surfaceVariant, 0.7);
+    padding: 1rem;
+    border-radius: 3rem;
+    margin: 0.5rem 0;
+}
+
+.recorder_menu_checkbox check {
+    background-color: $onSurfaceVariant;
+    min-width: 0.9rem;
+    min-height: 0.9rem;
+    border-radius: 1.2rem;
+    border: 0.3rem solid $onSurfaceVariant;
+}
+
+.recorder_menu_checkbox check:checked {
+    background-color: $surface;
+    color: transparent;
+    border: 0.3rem solid $onSurfaceVariant;
+}
+
+.record_menu_buttons {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.record_menu_button_cancel {
+    border: 0px solid $primary;
+    border-radius: 3rem;
+    min-width: 6rem;
+    background-color: transparentize($surfaceVariant, 0.7);
+    padding: 0.7rem;
+}
+
+.record_menu_button_cancel:hover {
+    background-color: $surfaceVariant;
+}
+
+
+.record_menu_button_start {
+    padding: 0.7rem;
+    background-color: $primary;
+    color: $surface;
+    border-radius: 3rem;
+    min-width: 6rem;
+}
+
+.reccorner {
+    background-color: transparent;
+    padding: 25px;
+    border-radius: 100%;
+
+    &.left {
+        box-shadow: -22px -30px 0px 0px $surface;
+    }
+
+    &.right {
+        box-shadow: 25px -30px 0px 0px $surface;
+    }
+}
+
+.recfolder  {
+        background-color: transparentize($surfaceVariant, 0.7);
+        margin: 1rem 0rem 0 0rem;
+        padding: 0.4rem 1rem 0.4rem 0.8rem;
+        border-radius: 3rem;
+    }
+
+.recfolder:hover  {
+        background-color: transparentize($surfaceVariant, 0.2);
+    }
+
+.rectext  {
+    color: $secondary;
+    }

@@ -1,8 +1,0 @@
-(defwidget killactive []
-    (button 
-        :onclick "hyprctl dispatch killactive" 
-        :class "killactive" 
-        "")
-)
-
-;; esempio di come cambiare cursore (eventbox :cursor "pointer"
