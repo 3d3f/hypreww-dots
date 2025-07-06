@@ -1,6 +1,6 @@
 # Hypreww
 
-Another [Hyprland](https://github.com/hyprwm/Hyprland) rice featuring [EWW (ElKowar’s Wacky Widgets)](https://elkowar.github.io/eww/).
+Another [Hyprland](https://github.com/hyprwm/Hyprland) rice featuring [EWW (ElKowar’s Wacky Widgets)](https://github.com/elkowar/eww).
 
 ## Screenshots
 
