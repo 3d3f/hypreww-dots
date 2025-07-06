@@ -1,0 +1,10 @@
+.killactive {
+    font-size: 1.1rem;
+    padding: 0 0.75rem 0 0.4rem;
+    margin: 0 0rem 0 0rem;
+    border-radius: 0.7rem;
+    transition: 0s;
+}
+.killactive:hover {
+    background-color: transparentize(#FFFFFF, 0.8);
+}

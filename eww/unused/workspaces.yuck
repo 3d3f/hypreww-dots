@@ -1,0 +1,17 @@
+;;WIDGETS
+
+(defwidget workspaces []
+  (eventbox :onscroll "scripts/change_active_workspace.sh {} ${current_workspace}" :class "workspaces"
+            :onrightclick "hyprctl dispatch hyprexpo:expo toggle &"
+    (box :space-evenly false
+      (label :text "${workspaces}${current_workspace}${urgent_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace ${workspace.id == current_workspace ? "current" : ""} ${workspace.id == urgent_workspace ? "urgent" : ""} ${workspace.windows > 0 ? "occupied" : "empty" }"
+            (label :text "${workspace.id}")
+          )
+        )
+      )
+    )
+  )
+)

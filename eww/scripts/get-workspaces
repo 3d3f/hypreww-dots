@@ -1,0 +1,21 @@
+#!/bin/bash
+
+spaces() {
+    WORKSPACE_WINDOWS=$(hyprctl workspaces -j | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
+    # Ottieni la lista di tutti i workspace esistenti
+    WORKSPACE_IDS=$(hyprctl workspaces -j | jq '.[].id')
+    
+    # Crea un array JSON con i workspace e il numero di finestre
+    echo "$WORKSPACE_IDS" | jq --argjson windows "${WORKSPACE_WINDOWS}" --slurp -Mc '
+        map(tostring) | 
+        sort_by(tonumber) | 
+        map({id: ., windows: ($windows[.]//0)})'
+}
+
+# Stampa lo stato iniziale
+spaces
+
+# Hyprland version >= v0.40.0
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+    spaces
+done

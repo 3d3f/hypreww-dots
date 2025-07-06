@@ -1,0 +1,12 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.notifications-popup-body {
+    padding: 0rem;
+    margin: 0rem 1rem 1rem 0;   
+    min-width: 30rem;
+    border-radius: 1.2rem;
+    border: 0.15rem solid $primary;
+    box-shadow: 0 0 0px 0px #000000;
+    background-color: $surface;
+    color: $onSurface;
+}

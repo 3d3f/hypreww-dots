@@ -1,0 +1,100 @@
+;;WINDOWS
+
+(defwindow osd
+    :monitor 0
+    :stacking "FG"
+    :namespace "eww2"
+    :geometry (geometry 
+                    :anchor "top center"
+                    :y "0%"
+                )
+    (volume_osd)
+)
+
+;;CAPSLOCK
+
+(defwindow caps_osd
+    :monitor 0
+    :stacking "fg"
+        :namespace "eww2"
+    :geometry (geometry 
+                    :anchor "top center"
+                    :y "0%"
+                )
+    (caps_osd)
+)
+
+(defwidget caps_osd []
+  (revealer :transition "fade" :reveal {open_caps_osd} :duration 200
+    (box :orientation "h" :class "capslock-osd" :space-evenly false
+      (label :class "osd-label" :text "󰘲  Caps Lock")
+      (label :class "osd-state" :text capslock)
+    )
+  )
+)
+
+(defwindow capscorner-left
+  :stacking "fg"
+  :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "56.8%"
+              :y "-0.1%"
+              :anchor "top left")
+  (box :class "capscorner left")  
+)
+
+(defwindow capscorner-right
+  :stacking "fg"
+  :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+        :x "40.6%"
+        :y "-0.1%"
+        :anchor "top left")
+  (box :class "capscorner right")  
+)
+
+;;NUMLOCK
+
+(defwindow num_osd
+    :monitor 0
+    :stacking "fg"
+        :namespace "eww2"
+    :geometry (geometry 
+                    :anchor "top center"
+                    :y "0%"
+                )
+    (num_osd)
+)
+
+(defwidget num_osd []
+  (revealer :transition "fade" :reveal {open_num_osd} :duration 200
+    (box :orientation "h" :class "numlock-osd" :space-evenly false
+      (label :class "osd-label" :text "󰎠  Num Lock")
+      (label :class "osd-state" :text numlock)
+    )
+  )
+)
+
+(defwindow numcorner-left
+  :stacking "fg"
+  :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "56.8%"
+              :y "-0.1%"
+              :anchor "top left")
+  (box :class "numcorner left")  
+)
+
+(defwindow numcorner-right
+  :stacking "fg"
+  :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+        :x "40.6%"
+        :y "-0.1%"
+        :anchor "top left")
+  (box :class "numcorner right")  
+)

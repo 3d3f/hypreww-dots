@@ -1,0 +1,65 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.tools-launcher {
+  background-color: transparent;
+  font-size: 1.8rem;
+  margin-right: 0.3rem;
+  margin-left: -0.6rem;
+  padding: 0 1rem 0 0.8rem;
+  color: $primary;
+  border-radius: 3rem;
+}
+
+.tools {
+    background-color:  $surface;
+    color: $onBackground;
+    color: $surface;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 3rem; 
+    padding: 3rem;
+  }
+
+.screenshot-tool1 {
+    background-color: $primary;
+    color: $onPrimary;
+    border-radius: 10rem;
+    padding: 1.3rem 2.7rem 1.3rem 2rem;
+    font-size: 3rem;
+  }
+
+
+.tool2 {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    color: $onBackground;
+    border-radius: 10rem;
+    padding: 0rem;
+    border: solid 0.8rem $primary;
+  }
+
+.update-tool2 {
+    background-color: $primary;
+    color: $onPrimary;
+    border-radius: 10rem;
+    padding: 0.6rem 2.35rem 0.6rem 1.85rem;
+    font-size: 4rem;
+  }
+
+
+.tool3 {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    color: $onBackground;
+    border-radius: 10rem;
+    padding: 0rem;
+    border: solid 0.8rem $primary;
+
+  }
+
+.wallpaper-tool3 {
+    background-color: $primary;
+    color: $onPrimary;
+    border-radius: 10rem;
+    padding: 1.3rem 2.6rem 1.3rem 2.1rem;
+    font-size: 3.3rem;
+  }

@@ -1,0 +1,102 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.powerprofile-title {
+  font-size: 1.2em;
+  margin-bottom: 1rem;
+  color: $secondary; // o altro colore che si intona al tuo tema
+  background-color: $surface;
+}
+
+
+.powerprofilebox {
+  background-color: $surface;
+  color: $onSurface;
+  padding: 1rem 1rem 1.5rem 1rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;}
+
+.saverbox {
+margin: 0 1rem;
+}
+
+.powersaver {
+  background-color: transparentize($surfaceVariant, 0.8);
+  color: $onBackground;
+  border-radius: 0.5rem;
+  padding: 0.55rem 1rem 0.4rem 0.2rem;
+  font-size: 3rem;
+
+  &:hover {
+    background-color: transparentize($primary, 0.85);
+    color: $primary;
+  }
+}
+
+.powersaver.selected {
+  background-color: $primary;
+  color: $onPrimary;
+  //box-shadow: 0 0 8px transparentize($primary, 0.3);
+}
+
+.powersavertext {
+margin: 0.9rem 0 0 0;
+}
+
+.balancedbox {
+margin: 0 1rem;
+}
+
+.balanced {
+  background-color: transparentize($surfaceVariant, 0.8);
+  color: $onBackground;
+  border-radius: 0.5rem;
+  padding: 0.6rem 3.4rem 0.6rem 2rem;
+    font-size: 2.9rem;
+
+
+  &:hover {
+    background-color: transparentize($primary, 0.85);
+    color: $primary;
+  }
+}
+
+.balanced.selected {
+  background-color: $primary;
+  color: $onPrimary;
+  //box-shadow: 0 0 8px transparentize($primary, 0.3);
+}
+
+.balancedtext {
+margin: 0.9rem 0 0 0rem;
+}
+
+
+.performancebox {
+margin: 0 1rem;
+}
+
+.performance {
+  background-color: transparentize($surfaceVariant, 0.8);
+  color: $onBackground;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1.2rem 0.2rem 1rem;
+    font-size: 3.3rem;
+
+  &:hover {
+    background-color: transparentize($primary, 0.85);
+    color: $primary;
+  }
+}
+
+.performance.selected {
+  background-color: $primary;
+  color: $onPrimary;
+  //box-shadow: 0 0 8px transparentize($primary, 0.3);
+}
+
+.performancetext {
+margin: 0.9rem 0 0 0;
+}
+

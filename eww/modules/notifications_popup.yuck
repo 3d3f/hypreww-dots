@@ -1,0 +1,27 @@
+;;WINDOWS
+
+(defwindow notifications_popup
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry
+                    :anchor "bottom right"
+                    :width "2px"
+                    :height "2px"
+                )
+    :namespace "eww"
+    (notifications_popup_widget)
+)
+
+;;WIDGETS
+
+(defwidget notifications_popup_widget []
+    (box :orientation "v" :space-evenly false
+        (for i in "[2, 1, 0]"
+            (revealer :transition "none" :reveal {notifications.popups[i] == "null" ? false : true} :duration "0"
+                (box :orientation "h" :space-evenly false :class "notifications-popup-body"
+                    (notification :notify {notifications.popups[i]})
+                )
+            )
+        )
+    )
+)

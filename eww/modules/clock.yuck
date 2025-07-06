@@ -1,0 +1,10 @@
+;;WIDGETS
+
+(defwidget clock []
+  (button :onclick "scripts/toggle_info_center.sh" :class "clock"
+         ;; :onrightclick "hyprctl dispatch killactive" 
+    (box :orientation "h" :space-evenly false :class "clock-box"
+      (label :class "clock-label" :text {formattime(EWW_TIME, "%H:%M")})
+    )
+  )
+)

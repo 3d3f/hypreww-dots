@@ -1,0 +1,18 @@
+* {
+	primary: {{ primary }};
+	onBackground: {{ onBackground }};
+	background: {{ background }};
+	primaryContainer: {{ primaryContainer }};
+	onPrimary: {{ onPrimary }};
+    onPrimaryContainer: {{ onPrimaryContainer }};
+	surface: {{ surface }};
+	secondary: {{ secondary }};
+	tertiary: {{ tertiary }};
+	error: {{ error }};
+	onSecondary: {{ onSecondary }};
+	secondary: {{ secondary }};
+    surfaceVariant: {{ surfaceVariant }};
+	onSurface: {{ onSurface }};
+}
+
+

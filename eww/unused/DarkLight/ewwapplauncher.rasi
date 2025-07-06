@@ -1,0 +1,114 @@
+ * {
+  font: "JetBrains Mono Nerd Font Bold 12";
+}
+
+configuration {
+  modi: "drun";
+  hover-select: true;
+  icon-theme: "papirus-icon-theme";
+  me-select-entry: "";
+  me-accept-entry: [ MousePrimary ];
+  scroll-method: 0;
+  show-icons: true;
+  terminal: "kitty";
+  drun-display-format: "{icon}  {name}";
+  display-drun:"";
+  location: 0;
+  disable-history: true;
+  hide-scrollbar: true;
+  }
+
+
+@import "~/.config/hypr/scripts/theme/material/colors/colors-rofi-dark.rasi"
+
+element-text, element-icon , mode-switcher {
+  background-color: inherit;
+  text-color:       inherit;
+}
+
+
+window {
+ location:                 northwest;
+  anchor:                   south;
+  padding: 12px 0px 0px 0px;
+  border: 0px;
+  border-color:        	rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 9px;
+    background-color: rgba(0, 0, 0, 0.2);
+      width:                       450px;
+      height:                      685px;
+    	  icon-theme: "Papirus-Dark";
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    enabled:                     true;
+  children: [prompt, entry];
+      spacing:                     10px;
+          text-color:                  @onBackground;
+  border: none;
+  background-color: transparent;
+  border-radius: 15px;
+  margin: 15px 18px 12px 10px;
+}
+
+entry {
+  text-color: @onBackground;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 12px 10px 12px 34px;
+      placeholder:                 "";
+          placeholder-color:         @onBackground;
+          border-radius: 10px;
+}
+
+prompt {
+  background-color: transparent;
+  color: @onBackground;
+}
+
+listview {
+    enabled: true;
+  padding: 10px 20px 10px 20px;
+  columns: 1;
+    lines: 10;
+  background-color: transparent;
+}
+
+element {
+  padding: 2px 0px 2px 15px;
+  border-radius: 30px;
+  background-color: transparent;
+  text-color: @onBackground;
+}
+
+element-icon {
+  size: 50px;
+  background-color: transparent;
+}
+
+element-text {
+  vertical-align: 0.5;
+  background-color: transparent;
+}
+
+element selected {
+  background-color: @primary;
+        border-radius:  20px;
+        color: @background;   
+}
+
+message {
+  background-color: #cdd6f4;
+  margin: 2px;
+  padding: 2px;
+}
+
+textbox {
+  padding: 6px;
+  margin: 20px 0px 0px 20px;
+  text-color: #cdd6f4;
+}

@@ -1,0 +1,63 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.quick_settings_button {
+    transition: 0ms;
+    background-color: transparentize($surfaceVariant, 0.5);
+    color: $onSurface;
+    border-radius: 3rem;
+    padding: 0.9rem 0.3rem;
+    font-size: 0.95rem;
+    margin: 0.5rem 0.5rem; 
+}
+
+.quick_settings_button:hover {
+    background-color: transparentize($surfaceVariant, 0.2);
+}
+
+.quick_settings_button_toggled {
+    background-color: $primary;
+    color: $surface;
+}
+
+.quick_settings_button_toggled:hover {
+    background-color: mix($primary, $secondary, 70%);
+}
+
+.quick_settings_box {
+    margin: 0rem -0.8rem 0 -0.8rem;
+    background-color: transparent;
+    
+}
+
+.quick-settings-icon {
+    font-size: 2rem;
+    margin-left: 1rem;
+    border-radius: 3rem;
+}
+
+.quick-settings-info {
+    margin-left: 0rem;
+    min-width: 9rem;
+
+}
+
+.quick-settings-state {
+    font-size: 0.9rem;
+    color: $onSurfaceVariant;
+    margin: 0 0 0 1rem;
+}
+
+.quick-settings-state-enabled {
+    color: $surfaceVariant;
+}
+
+.quick-settings-text {
+    margin-left: 1rem;
+    font-weight: 500;
+
+ }
+
+
+ .quick-settings-status {
+    margin-left: 1.8rem;
+ }

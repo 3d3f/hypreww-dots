@@ -1,0 +1,6 @@
+(defwidget power []
+    (box :orientation "horizontal"
+         :space-evenly false
+      (button :class "power" 
+       :onclick "scripts/powermenu.sh &"
+        (label :text "⏻"))))

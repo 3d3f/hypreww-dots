@@ -1,0 +1,87 @@
+
+;;WINDOWS
+
+(defwindow bright_osd
+    :monitor 0
+    :stacking "FG"
+    :namespace "eww2"
+    :geometry (geometry 
+                    :anchor "top center"
+                    :y "0"
+                )
+    (bright_osd)
+)
+
+(defwindow cornerbright-left
+  :stacking "fg"
+  :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "61.6%"
+              :y "-0.1%"
+              :anchor "top left")
+  (box :class "cornerbright left")  
+)
+
+(defwindow cornerbright-right
+  :stacking "fg"
+      :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "35.9%"
+              :y "-0.1%"
+              :anchor "top left")
+  (box :class "cornerbright right")  
+)
+
+;;WIDGETS
+
+(defwidget brightness_control_center []
+  (box :orientation "h" 
+       :class "brightness-control-center" 
+       :space-evenly false  
+    ;; Slider per la luminosità con icona dinamica
+    (overlay :hexpand true
+        (scale :orientation "h" 
+               :min 0 
+               :max 100 
+               :value br 
+               :onchange "brightnessctl set {}%" 
+               :class "brightness-scale")
+        (label :class "brightness-icon ${br < 5 ? 'low' : 'high'}" 
+               :halign "start" 
+               :text {br < 15 ? "󰃞" : br < 60 ? "󰃟" : "󰃠"})
+    )
+    ;; Pulsante per attivare/disattivare Hyprsunset
+    (button :class "nightlight ${nightlight == 'true' ? 'active' : ''}" 
+        :onclick "scripts/toggle_nightlight.sh"       
+        (label  :class "nightlight-label" :text "󰖔"))    
+    ;; Pulsante per diminuire la luminosità
+   (button :class "ddcui-arrow" 
+         :onclick "scripts/toggle_control_center.sh && ddcui &" 
+              (label  :class "ddcui-arrow-label" :text "󰅂")
+    )
+  )
+)
+
+(defwidget bright_scale []
+    (overlay :hexpand true
+        (scale :orientation "h" 
+               :min 0 
+               :max 100 
+               :value br 
+               :onchange "brightnessctl set {}%" 
+               :class "brightness-scale")
+        (label :class "brightness-icon ${br < 5 ? 'low' : 'high'}" 
+               :halign "start" 
+               :text {br < 15 ? "󰃞" : br < 60 ? "󰃟" : "󰃠"})
+    ))
+
+
+(defwidget bright_osd []
+    (revealer :transition "fade" :reveal {open_bright_osd} :duration {ANIM_DURATION}
+        (box :orientation "h" :class "volume-osd" :space-evenly false
+            (bright_scale)
+        )
+    )
+)

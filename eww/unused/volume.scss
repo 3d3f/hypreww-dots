@@ -1,0 +1,45 @@
+
+ 
+ .volume-control-center {
+     margin-top: 1.3rem;
+ }
+ 
+ .volume-scale trough {
+     background-color: $surfaceVariant;
+     border-radius: 1.3rem;
+     min-height: 1rem;
+ }
+ 
+ 
+ .volume-scale trough highlight {
+     background-color: $primary;
+     border-radius: 1.3rem;
+     min-height: 1rem;
+ }
+ 
+ .volume-icon {
+     font-size: 1.5rem;
+     background-color: transparent;
+     &.less {
+         color: $onSurface;
+     };
+ 
+     &.more {
+         color: $onSurface;
+     };
+ }
+ 
+ .volume-arrow {
+    background-color: transparent;
+     color: $onSurface;
+     margin-left: 1rem;
+     font-size: 1.5rem;
+     padding: 0 0.8rem 0 0.8rem;
+     border-radius: 1.5rem;
+    }
+ 
+ .volume-arrow:hover {
+    color: $onSurface;
+    background-color: mix($onSecondary, $secondary, 70%);
+ }
+ 

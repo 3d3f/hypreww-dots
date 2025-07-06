@@ -1,0 +1,161 @@
+
+
+;;WINDOWS
+
+(defwindow info_center
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry
+                    :anchor "top center"
+                    :x "0"
+                    :y "0"
+                )
+    :namespace "eww2"
+    (info_center)
+)
+
+(defwindow cornerinfo-left
+  :stacking "fg"
+      :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "73.1%"
+              :y "0px"
+              :anchor "top left")
+  (box :class "cornerinfo left")  
+)
+
+(defwindow cornerinfo-right
+  :stacking "fg"
+      :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "73.1%"
+              :y "0px"
+              :anchor "top right")
+  (box :class "cornerinfo right")  
+)
+
+(defwindow info_center-closer
+    :monitor 0
+    :geometry (geometry :width "100%" :height "100%")
+    :stacking "fg"
+    :focusable false
+    :namespace "eww3"
+    (closerinfo_center :window "info_center")
+)
+
+;;WIDGETS
+
+(defwidget divider []
+  (box :class "divider"
+       :orientation "v"
+       :space-evenly true)
+)
+
+(defwidget time []
+  (box :class "timebox"
+       :orientation "h"
+       :space-evenly false
+    (box :class "time-container"
+         :orientation "h"
+         :space-evenly false
+         :halign "center"
+         :valign "center"
+      (label :text "${lithour}" :class "content")
+      (divider)
+      (label :text "${litmin}" :class "content")
+    )
+    (box :class "date-container"
+         :orientation "h"
+         :space-evenly true
+         :halign "center"
+      (label :text "${completeday}")
+    )
+  )
+)
+
+(defwidget cal []
+  (box :class "calendar"
+       :orientation "v"
+       :space-evenly false
+    (calendar :class "cal"
+              :day calendar_day
+              :month calendar_month
+              :year calendar_year)
+  )
+)
+
+(defwidget info_center []
+  (box :class "info_center"
+       :orientation "v"
+       :space-evenly false      
+     (box :orientation "h"
+          :halign "center"
+          :space-evenly false      
+          (time)
+      )
+    (box 
+       :orientation "h"
+       :space-evenly true
+       (box 
+           :orientation "v"
+           :space-evenly true
+           (notifications)
+           )
+       (box 
+           :orientation "v"
+           :space-evenly false
+           (cal)
+           (weather))
+    )
+  )
+)
+
+
+(defwidget glink []
+       (eventbox 
+          :orientation "h"
+          :halign "end"
+          :class "open-googlecal-button" 
+          :onclick "scripts/toggle_info_center.sh close && zen-browser --new-window https://calendar.google.com/calendar/u/0/r &" " 󰃭")
+          )
+
+
+(defwidget closerinfo_center [window]
+  (eventbox :onclick "eww close ${window} && eww close ${window}-closer && scripts/toggle_info_center.sh close &")
+)
+
+(defwidget weather []
+(eventbox :onclick "~/.config/eww/scripts/toggle_info_center.sh && kitty -e micro ~/.config/eww/scripts/weather.py &"
+  (box :orientation "v" :space-evenly false :class "weather"
+    (label :class "weather-connection-error" :text "No connection 󱓤" :visible {weather != "null" ? false : true})
+      (box :orientation "h" :space-evenly false
+        (label :hexpand true :class "weather-current-icon" :halign "start" :valign "start" :text {weather.current.icon})
+          (box :hexpand true :orientation "v" :space-evenly false :halign "end" :valign "start"
+            (label :halign "end" :class "weather-location" :text {weather.location})
+            (label :limit-width 20 :halign "end" :class "weather-current-text" :text {weather.current.text})))
+
+        (box :orientation "h" :space-evenly false :class "weather-info"
+            (box :orientation "v" :space-evenly false :halign "start" :hexpand false
+                (label :halign "start" :class "weather-current-temp" :text {weather.current.temp})
+                (box :orientation "h" :space-evenly false
+                    (label :class "weather-current-maxtemp" :text {weather.maxtemp})
+                    (label :class "weather-current-mintemp" :text {weather.mintemp})
+                )
+            )
+            (box :orientation "h" :space-evenly false :halign "end" :hexpand true
+                (for hour in {weather.hourly}
+                    (box :orientation "v" :space-evenly false :class "weather-hour"
+                        (label :class "weather-hour-temp" :text {hour.temp})
+                        (label :class "weather-hour-icon" :text {hour.icon})
+                        (label :class "weather-hour-time" :text {hour.time})
+                    )
+                )
+            )
+        )
+    )
+  )
+)
+
+

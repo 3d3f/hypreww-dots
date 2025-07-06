@@ -1,0 +1,6 @@
+(defwidget killactive []
+    (button 
+        :onclick "hyprctl dispatch killactive" 
+        :class "killactive" 
+        "")
+)

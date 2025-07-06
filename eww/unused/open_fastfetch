@@ -1,0 +1,2 @@
+#!/bin/bash
+kitty  --hold sh -c 'fastfetch'

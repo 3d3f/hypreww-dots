@@ -1,0 +1,5 @@
+(defwidget hidebutton []
+  (button :class "hidebutton ${bar_visible == 'false' ? 'active' : ''}" 
+          :onclick "scripts/hideshowbar.sh &"
+          "${bar_visible == 'false' ? '' : ''}")
+)

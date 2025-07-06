@@ -1,0 +1,106 @@
+;;WIDGETS
+
+(defwidget quick_settings []
+    (box :orientation "v" :class "quick_settings_box" :space-evenly true
+        (box :orientation "h" :space-evenly true
+            (network)
+            (do-not-disturb_mode)
+        )
+        (box :orientation "h" :space-evenly true
+            (theme)
+            (bluetooth)
+        )
+                (box :orientation "h" :space-evenly true
+                    (recorder)
+                    (microphone)
+        )
+    )
+)
+
+(defwidget quick_settings_button [condition action icon label class]
+    (button :onclick {action} :class {condition ? "quick_settings_button ${class}" : "quick_settings_button quick_settings_button_toggled ${class}"}
+        (box :orientation "h" :space-evenly false
+            (box :orientation "h" :space-evenly false :halign "start"
+                (label :class "quick-settings-icon" :text {icon})
+            )
+            (box :orientation "v" :class "quick-settings-info" :space-evenly false :halign "end" :valign "center"
+                (box :orientation "h" :space-evenly false :halign "start"
+                    (label :class "quick-settings-text" :truncate true :limit-width 15 :unindent true :show-truncated true :text {label})
+                )
+                (box :orientation "h" :space-evenly false :halign "start"
+                    (label :class {condition ? "quick-settings-state" : "quick-settings-state quick-settings-state-enabled"} :text {condition ? "Off" : "On"})
+                )
+            )
+        )
+    )
+)
+
+
+(defwidget network []
+  (quick_settings_button
+    :condition {network.essid == "lo"} 
+    :action {network.essid == "lo" ? "XDG_CURRENT_DESKTOP='gnome' gnome-control-center wifi &" : "nmcli connection down id '${network.essid}'"}
+    :icon {
+      network.essid == "lo" ? "󰤭" :
+      network.type == "wired" ? "󰈀" :
+      network.signal == "" ? "󰤩" :
+      network.signal < 25 ? "󰤟" :
+      network.signal < 50 ? "󰤢" :
+      network.signal < 75 ? "󰤥" : "󰤨"
+    }
+    :label {network.essid == "lo" ? "Not connected" : network.essid}
+    :class "left-top-plite"
+  )
+)
+
+
+
+(defwidget do-not-disturb_mode []
+    (quick_settings_button  :condition {do-not-disturb == false} 
+                            :action "scripts/notifications.sh togglednd"
+                            :icon "󰍷"
+                            :label "Do not disturb"
+                            :class "right-top-plite"
+    )
+)
+
+(defwidget recorder []
+    (quick_settings_button  :condition {recording == false} 
+                            :action {recording == false ? "scripts/toggle_control_center.sh && 
+                                                           eww open recorder_menu" : "pkill -INT wf-recorder && notify-send 'Recording saved'"}
+                            :icon "󰻃"
+                            :label "Recording"
+                            :class "right-bottom-plite"
+    )
+)
+
+(defwidget bluetooth []
+  (quick_settings_button        
+      :condition {bluetooth_powered == "no"}  ;; "no" se spento
+      :action "scripts/bluetooth.sh --toggle &" ;; Azione per attivare/disattivare
+      :icon {bluetooth_icon}                   ;; Icona dinamica dallo script
+      :label "${bluetooth_battery} ${bluetooth_status}"             ;; Testo dinamico dallo script
+      :class "right-bottom-plite")       
+    )
+
+
+
+(defwidget theme []
+    (quick_settings_button  :condition {current_theme == "light"} 
+                            :action "scripts/toggledarklighttheme.sh &"
+                            :icon "󱎖"
+                            :label "Dark mode"
+                            :class "left-bottom-plite"
+    )
+)
+
+
+
+(defwidget microphone []
+    (quick_settings_button  :condition {mic_status == "no"}  ;; Corretto il controllo dello stato
+                            :action "~/.config/eww/scripts/mic toggle"
+                            :icon {mic_status == "no" ? "󰍭" : ""}  ;; Corrette le icone per stato spento/acceso
+                            :label "Microphone"
+                            :class "right-bottomest-plite"
+    )
+)

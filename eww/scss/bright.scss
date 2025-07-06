@@ -1,0 +1,100 @@
+.brightness-control-center {
+    margin-top: 1rem;
+    margin-right: 0.2rem;
+}
+
+.brightness-scale trough {
+    background-color: transparentize($surfaceVariant, 0.60);
+    border-radius: 3rem;
+    min-height: 2.5rem;
+    border: 0px;
+}
+
+.brightness-scale trough highlight {
+    background-color: $primary;
+    border-radius: 3rem;
+    min-height: 2.25rem;
+    
+}
+
+.brightness-icon {
+    margin-left: 0.75rem;
+    font-size: 1.7rem;
+    color: $surface;
+
+    &.low {
+        color: $onBackground;
+    };
+
+    &.high {
+        color: $surface;
+    };
+}
+
+.ddcui-arrow {
+    background-color: transparentize($surfaceVariant, 0.60);
+    color: $onSurface;
+    margin-left: 0.5rem;
+    margin-right: -0.2rem;
+    border-radius: 1.5rem;
+    padding: 0 0.75rem 0 0.8rem;
+}
+
+.ddcui-arrow-label {
+    font-size: 1.7rem;
+    margin-right: 0rem;
+}
+
+.ddcui-arrow:hover {
+    background-color: transparentize($surfaceVariant, 0.2);
+}
+
+.nightlight {
+    background-color: transparentize($surfaceVariant, 0.60);
+    color: $onSurface;
+    margin-left: 0.5rem;
+    border-radius: 1.5rem;
+    padding: 0 0.75rem 0 0.8rem; 
+    &:hover {
+        background-color: transparentize($surfaceVariant, 0.2);
+    }
+  
+    &.active {
+        background-color: $primary;
+        color: $surface;
+    }
+    &.active:hover {
+        color: $surface;
+         background-color: mix($primary, $onSurface, 70%);
+     }
+  }
+
+  .nightlight-label  {
+    font-size: 1.8rem;
+    margin-right: 0.25rem;
+    margin-left: 0rem;
+}
+  
+
+.brigth-osd {
+    background-color: $primaryContainer;
+    border-radius: 10rem;
+    padding: 0.4rem;
+    color: $onSurface;
+    margin: 1rem;
+    min-width: 25rem;
+ }
+
+ .cornerbright {
+    background-color: transparent;
+    padding: 25px;
+    border-radius: 100%;
+  
+    &.left {
+      box-shadow: -22px -30px 0px 0px $surface;
+    }
+  
+    &.right {
+      box-shadow: 25px -30px 0px 0px $surface;  
+    }
+  }

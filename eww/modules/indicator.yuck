@@ -1,0 +1,114 @@
+;;WIDGETS
+
+(defwidget indicator []
+(box :orientation "h" :space-evenly false :class "clipindbox"
+    (clipboard)
+    (button :onclick "scripts/toggle_control_center.sh" :class "indicator"
+            :onrightclick "scripts/toggle_screenshot.sh"
+        (box :orientation "h" :space-evenly false
+            (recorder_icon)
+            (theme_icon)
+            (network_icon)
+            (mic_icon)
+            (volume_icon)
+           ;; (battery_icon)
+        )
+    )
+))
+
+(defwidget state_icon [condition text]
+    (label :class "indicator-icon" :visible {condition} :valign "center" :text {text})
+)
+
+(defwidget state_icon_net [condition text]
+    (label :class "indicator-icon-net" :visible {condition} :valign "center" :text {text})
+)
+
+(defwidget state_icon_theme [condition text]
+    (label :class "indicator-icon-theme" :visible {condition} :valign "center" :text {text})
+)
+
+(defwidget state_icon_bat [condition text]
+    (label :class "indicator-icon-bat" :visible {condition} :valign "center" :text {text})
+)
+
+
+(defwidget state_icon_not [condition text]
+    (label :class "notification-icon" :visible {condition} :valign "center" :text {text})
+)
+
+(defwidget state_icon_rec [condition text]
+    (label :class "indicator-icon-rec" :visible {condition} :valign "center" :text {text})
+)
+
+(defwidget state_icon_mic [condition text]
+    (label :class "indicator-icon-mic" :visible {condition} :valign "center" :text {text})
+)
+
+(defwidget volume_icon []
+    (state_icon :condition true
+                :text {volume == "muted" ? "" : volume < 33 ? "" : volume < 67 ? "" : ""}
+    )
+)
+
+(defwidget battery_icon []
+    (box :visible {EWW_BATTERY == "" ? false : true}
+        (state_icon_bat :condition true                   
+                    :text {EWW_BATTERY.BAT0.status == "Charging" ? "󰂄" :
+                    EWW_BATTERY.BAT0.capacity > 98 ? "󰁹" :
+                    EWW_BATTERY.BAT0.capacity > 90 ? "󰂂" :
+                    EWW_BATTERY.BAT0.capacity > 80 ? "󰂁" :
+                    EWW_BATTERY.BAT0.capacity > 70 ? "󰂀" :
+                    EWW_BATTERY.BAT0.capacity > 60 ? "󰁿" :
+                    EWW_BATTERY.BAT0.capacity > 50 ? "󰁾" :
+                    EWW_BATTERY.BAT0.capacity > 40 ? "󰁽" :
+                    EWW_BATTERY.BAT0.capacity > 30 ? "󰁼" :
+                    EWW_BATTERY.BAT0.capacity > 20 ? "󰁻" :
+                    EWW_BATTERY.BAT0.capacity > 10 ? "󰁺" :
+                    "󰂎"}
+        )
+    )
+)
+(defwidget network_icon []
+  (state_icon_net
+    :condition true
+    :text {
+      network.essid == "lo"     ? "󰤭" :
+      network.type == "wired"   ? "󰈀" :
+      network.signal == ""      ? "󰤩" :
+      network.signal < 25       ? "󰤟" :
+      network.signal < 50       ? "󰤢" :
+      network.signal < 75       ? "󰤥" : "󰤨"
+    })
+)
+
+
+
+(defwidget mic_icon []
+    (state_icon_mic :condition true
+                :text {mic_status == "no" ? "󰍭" : ""}
+    )
+)
+
+(defwidget do-not-disturb_icon []
+  (box :class "notification-icon"
+    (state_icon_not :condition {do-not-disturb == true}
+                :text "󰍷")
+    (state_icon_not :condition {do-not-disturb == false && has-notifications == false}
+                :text "")
+    (state_icon_not :condition {do-not-disturb == false && has-notifications == true}
+                :text "󱅫")
+  )
+)
+
+(defwidget theme_icon []
+    (state_icon_theme :condition true
+                :text {current_theme == "dark" ? "󱎖" : "󰖨"}
+    )
+)
+
+(defwidget recorder_icon []
+    (state_icon_rec :condition {recording == false ? false : true}
+                :text "󰻃"
+    )
+)

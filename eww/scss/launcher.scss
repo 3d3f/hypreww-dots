@@ -1,0 +1,32 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.launcher {
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: $primary;
+    border-radius: 0.7rem;
+    padding: 0rem 1rem 0 0.3rem;
+    margin: 0 0.3rem 0 0.1rem;
+    transition: 0s;
+    
+}
+
+.launcher:hover {
+    background-color: transparent;
+    color: $primary;
+}
+
+.launchcorner {
+  background-color: transparent;
+  padding: 35px;
+  border-radius: 100%;
+
+  &.left {
+    box-shadow: -29px -25px 0px 0px $surface;
+
+  }
+
+  &.right {
+    box-shadow: -29px -25px 0px 0px $surface;
+  }
+}

@@ -1,0 +1,10 @@
+
+
+.separator {
+  background-color: transparentize($onBackground, 0.5);
+  min-width: 4px;
+  min-height: 4px;
+  border-radius: 3rem;
+  color: $primary;
+  margin: 0 0.4rem;
+}

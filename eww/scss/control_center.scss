@@ -1,0 +1,130 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.control-center {
+  margin: 0rem 0rem 0 0;
+  color: $surface;
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 0rem;
+  padding: 1.5rem 0rem 1.5rem 0rem;
+  background-color: $surface;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.random-buttons-box {
+  padding: 0rem 0.3rem 0.8rem 0.3rem;
+  background-color: transparentize($surfaceVariant, 0.9);
+  color: $onBackground;
+  border-radius: 2.2rem;
+  margin: 1.2rem -0.3rem 0.5rem -0.3rem;
+}
+
+.random-button1 {
+  background-color: transparentize($surfaceVariant, 0.7);
+  color: $primary;
+  border-radius: 10rem;
+  font-size: 2.1rem;
+  margin: 0.8rem 0.8rem 0.4rem 0.65rem;
+}
+
+.random-button1:hover {
+  background-color: transparentize($surfaceVariant, 0.2);
+  color: $primary;
+}
+
+.button1-text {
+  font-size: 0.9rem;
+}
+
+.button1-label {
+  margin-right: 0rem;
+  padding: 0.32rem 0;
+  font-size: 2.9rem;
+}
+
+.button2-label {
+  margin-right: 0.3rem;
+  font-size: 2.4rem;
+  padding: 0.6rem 0;
+}
+
+.button2-text {
+  font-size: 0.9rem;
+}
+
+.button3-label {
+  margin-right: 0.6rem;
+  font-size: 2rem;
+  padding: 0.9rem 0;
+}
+
+.button3-text {
+  font-size: 0.9rem;
+}
+
+.button4-label {
+  margin-right: 0.7rem;
+  font-size: 2.2rem;
+  padding: 0.8rem 0;
+}
+
+.button4-text {
+  font-size: 0.9rem;
+}
+
+.button5-label {
+  margin-right: 0.6rem;
+  font-size: 1.7rem;
+  padding: 1rem 0;
+}
+
+.button5-text {
+  font-size: 0.9rem;
+}
+
+.button6-label {
+  margin-right: 0.2rem;
+  font-size: 2rem;
+  padding: 0.85rem 0;
+}
+
+.button6-text {
+  font-size: 0.9rem;
+}
+
+
+.button7-label {
+  margin-right: 0.45rem;
+  font-size: 2.1rem;
+  padding: 0.8rem 0;
+}
+
+.button7-text {
+  font-size: 0.9rem;
+}
+
+.button8-label {
+  margin-right: 0.5rem;
+  font-size: 2.1rem;
+  padding: 0.8rem 0;
+}
+
+.button8-text {
+  font-size: 0.9rem;
+}
+
+.centercorner {
+  background-color: transparent;
+  padding: 35px;
+  border-radius: 100%;
+
+  &.left {
+    box-shadow: 29px -25px 0px 0px $surface;
+
+  }
+
+  &.right {
+    box-shadow: 29px -25px 0px 0px $surface;
+  }
+}

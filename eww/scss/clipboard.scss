@@ -1,0 +1,47 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.clipboard {
+    font-size: 1.5rem;
+    padding: 0 0 0 0.3rem;
+    margin: 0 0.4rem 0 0.7rem;
+    border-radius: 0rem;
+    transition: 0s;
+    color: $onSurface;
+    background-color: $onSecondary;
+}
+
+.clipboard-clear {
+    font-size: 1.2rem;
+    padding: 0 0.5rem 0 0.4rem;
+    margin: 0 0rem 0 0rem;
+    border-radius: 0rem;
+    transition: 0ms;
+    background-color: transparent;
+    color: $error;
+}
+.clipboard-clear:hover {
+    border-radius: 0.5rem;
+    background-color: transparentize(#FFFFFF, 0.9);
+}
+
+.clipcorner {
+  background-color: transparent;
+  padding: 35px;
+  border-radius: 100%;
+
+  &.left {
+    box-shadow: 29px -25px 0px 0px $surface;
+
+  }
+
+  &.right {
+    box-shadow: 29px -25px 0px 0px $surface;
+  }
+}
+
+.killrofi {
+    font-size: 1.3rem;
+    padding: 0rem 1rem 0.8rem 0rem;
+    color: transparent;
+    background-color: transparent;
+}

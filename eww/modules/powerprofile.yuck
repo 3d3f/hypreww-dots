@@ -1,0 +1,63 @@
+;;WINDOWS
+
+(defwindow powerprofile
+    :monitor 0
+    :stacking "fg"
+    :geometry (geometry
+                    :anchor "top center"
+                    :y "0"
+                    :x "0"
+                )
+    :namespace "eww2"
+    (powerprofile)
+)
+
+;;WIDGETS
+
+(defwidget powerprofile []
+  (eventbox
+    (box :orientation "v" :class "powerprofilebox"  :halign "center" :valign "start" :space-evenly false
+      ;; Titolo centrato in alto
+      (label :text "Power profiles " :class "powerprofile-title" :halign "center")
+
+      ;; Box con i tre profili
+      (box :orientation "h" :halign "center" :valign "start" :space-evenly true
+        (box :orientation "v" :space-evenly false :class "saverbox"
+          (button
+            :onclick "powerprofilesctl set power-saver"
+            :class `${power_profile == "Power-saver" ? "powersaver selected" : "powersaver"}`
+            (label :text "" :class "powersaverlabel"))
+          (label :text "Power-Saver" :class "powersavertext"))
+
+        (box :orientation "v" :space-evenly false :class "balancedbox"
+          (button
+            :onclick "powerprofilesctl set balanced"
+            :class `${power_profile == "Balanced" ? "balanced selected" : "balanced"}`
+            (label :text "" :class "balancedlabel"))
+          (label :text "Balanced" :class "balancedtext"))
+
+        (box :orientation "v" :space-evenly false :class "performancebox"
+          (button
+            :onclick "powerprofilesctl set performance"
+            :class `${power_profile == "Performance" ? "performance selected" : "performance"}`
+            (label :text "󰿗" :class "performancelabel"))
+          (label :text "Performance" :class "performancetext"))
+      )
+    )
+  )
+)
+
+
+  
+
+(defwindow powerprofile-closer
+    :monitor 0
+    :stacking "fg"
+    :namespace "eww3"
+    :geometry (geometry :width "100%" :height "100%")
+    (closerpowerprofile :window "powerprofile")
+)
+
+(defwidget closerpowerprofile [window]
+  (eventbox :onclick "eww close ${window}-closer && scripts/toggle_powerprofile.sh &"))
+

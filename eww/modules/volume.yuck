@@ -1,0 +1,51 @@
+;;WINDOWS
+
+(defwindow cornervolume-left
+  :stacking "fg"
+  :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "61.6%"
+              :y "-0.1%"
+              :anchor "top left")
+  (box :class "cornervolume left")  
+)
+
+(defwindow cornervolume-right
+  :stacking "fg"
+  :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+        :x "35.9%"
+        :y "-0.1%"
+        :anchor "top left")
+  (box :class "cornervolume right")  
+)
+
+;;WIDGETS
+
+(defwidget volume_scale [] 
+    (overlay :hexpand true 
+        (scale :orientation "h" :min 0 :max 100 :active {volume != "muted"} :value {volume == "muted" ? 0 : volume} :onchange "pamixer --set-volume {}" :class "volume-scale")
+        (label :class 'volume-icon ${volume == "muted" ? "less" : volume < 5 ? "less" : "more"}' :halign "start" :text {volume == "muted" ? "" : volume < 18 ? "" : volume < 50 ? "" : ""})
+    )
+)
+
+(defwidget volume_osd []
+    (revealer :transition "fade" :reveal {open_osd} :duration {ANIM_DURATION}
+        (box :orientation "h" :class "volume-osd" :space-evenly false
+            (volume_scale)
+        )
+    )
+)
+
+(defwidget volume_control_center []
+    (box :orientation "h" :class "volume-control-center" :space-evenly false 
+        (volume_scale)
+        (box :orientation "h"  :space-evenly true
+        (button :class "volume-mute ${volume == 'muted' ? 'active' : ''}" :onclick "pamixer -t" 
+        (label  :class "volume-mute-label" :text ""))
+        (button :class "volume-arrow" :onclick "scripts/toggle_control_center.sh close && pavucontrol &" 
+        (label  :class "volume-arrow-label" :text "󰅂"))
+    ))
+)

@@ -1,0 +1,133 @@
+.user-box {
+    margin: 0rem 0;
+    background-color: transparent;
+}
+
+.username {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.uptime {
+    color: $onSurfaceVariant;
+    font-size: 1rem;
+}
+
+.user-image {
+    background-image: url("/home/fede/Pictures/icons/ava.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 3rem;
+    min-width: 3rem;
+    border-radius: 10%;
+    margin: 0 0rem 0 0rem;
+}
+
+.open-powermenu-button {
+    background-color: $primary;
+    color: $surface;
+    border-radius: 10rem;
+    padding: 0rem 0rem;
+    transition: 0s;
+    font-size: 1rem;
+    margin: 0rem 0 0 1.4rem;
+
+}
+
+.open-powermenu-button:hover {
+    background-color: #FF5252;
+    color: $surface;
+}
+
+.power_button_label {
+     margin: 0.05rem 0.4rem 0 0;
+}
+
+.logout_button {
+    background-color: $primary;
+    color: $surface;
+    border-radius: 0.5rem;
+    padding: 0rem 0.5rem;
+    transition: 0s;
+    font-size: 1.5rem;
+    margin: 0rem 0 0 1.7rem;
+
+}
+
+.logout_button:hover {
+    background-color: #FFEE58;
+    color: $surface;
+}
+
+.logout_label {
+     margin: 0rem 0.2rem 0 0;
+}
+
+.user-clock-time {
+    font-size: 1.4rem;
+}
+
+.user-clock-separator {
+    font-size: 1.4rem;
+    margin: 0 0.25rem;
+    color: $primary;
+}
+
+.user-clock-date {
+    font-size: 1.2rem;
+}
+
+
+.open-tlpui-button {
+    background-color: transparentize($surfaceVariant, 0.70);
+    color: $onSurface;
+    border-radius: 1.5rem;
+    padding: 0 0.8rem 0 0.7rem;
+    margin: 0.35rem 0;
+    transition: 0s;
+    font-size: 1.2rem;
+}
+
+.open-tlpui-button:hover {
+    background-color: $primary;
+    color: $surface;
+}
+
+
+.battery-number {
+    font-size: 1.2rem;
+    padding-left: 0.4rem;
+
+}
+
+.battery-icon FFFFFF{
+    font-size: 1.6rem;
+}
+
+.battery-label {
+    font-size: 1.6rem;
+}
+
+
+.image-background {
+    background-color: $primary; 
+    border-radius: 1.1rem;
+    margin: 0 0rem 0 0;
+    padding: 0 0.5rem;
+}
+    
+
+.cornerwall {
+    background-color: transparent;
+    padding: 25px;
+    border-radius: 100%;
+  
+    &.left {
+      box-shadow: -22px -30px 0px 0px $surface;
+    }
+  
+    &.right {
+      box-shadow: 25px -30px 0px 0px $surface;  
+    }
+  }

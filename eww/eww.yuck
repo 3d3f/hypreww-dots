@@ -1,0 +1,53 @@
+(include "variables.yuck")
+
+(include "modules/bar.yuck")
+(include "modules/battery.yuck")
+(include "modules/bright.yuck")
+(include "modules/clock.yuck")
+(include "modules/clipboard.yuck")
+(include "modules/control_center.yuck")
+(include "modules/indicator.yuck")
+(include "modules/info_center.yuck")
+(include "modules/killactive.yuck")
+(include "modules/launcher.yuck")
+(include "modules/notifications.yuck")
+(include "modules/notifications_popup.yuck")
+(include "modules/osd.yuck")
+(include "modules/powermenu.yuck")
+(include "modules/quick_settings.yuck")
+(include "modules/recorder_menu.yuck")
+(include "modules/screenshot.yuck")
+(include "modules/tray.yuck")
+(include "modules/volume.yuck")
+(include "modules/wallpaper.yuck")
+(include "modules/workspaces.yuck")
+
+(include "modules/recordplayer.yuck")
+
+(include "modules/powerprofile.yuck")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

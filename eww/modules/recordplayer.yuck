@@ -1,0 +1,167 @@
+;; WINDOWS
+
+
+(defwindow recordplayer
+  :geometry (geometry
+              :x "66.5%"
+              :y 0 
+              :width 300 
+              :height 430
+              :anchor "top left")
+  :stacking "fg"
+  :exclusive false 
+  :monitor 0 
+  :wm-ignore false 
+  :windowtype "normal"
+  :namespace "eww2"
+  (box
+    :halign "start"
+    (recordplayerwid)))
+
+(defwindow musicplayer-closer
+    :monitor 0
+    :stacking "fg"
+    :namespace "eww3"
+    :geometry (geometry :width "100%" :height "100%")
+    (closermusicplayer :window "musicplayer")
+)
+
+;; WIDGETS
+
+(defwidget recordplayerwid []
+  (box
+    :class "popup ${picomrunning ? '' : 'square'}"
+    :orientation "h"
+    :space-evenly false
+    (box 
+      :orientation "v"
+      :space-evenly false
+      (box
+          (dischand))
+      (box
+        :orientation "v"
+        :vexpand true
+        (box 
+          :orientation "v"
+          :valign "center"
+          :halign "center"
+          :width 240
+          (scroll
+            :hscroll true
+            :vscroll false
+            (label 
+              :class "songtext"
+              :markup "${playerctl.song}")) 
+          (scroll
+            :hscroll true
+            :vscroll false
+            :hexpand true
+            (label 
+              :class "artisttext"
+              :markup "<b>${playerctl.artist}</b>"))) 
+        (box
+          :orientation "h"
+          :space-evenly false
+          :halign "center"
+          (box
+            :class "widget"
+            :orientation "h"
+            :halign "center"
+            :valign "end"
+            :width 180
+            :height 80
+            (button 
+              :onclick "playerctl previous"
+              :class "previous" "󰼨") 
+            (button 
+              :onclick "playerctl play-pause"
+              (label :text {playerctl.status == "Playing" ? "󰏤" : "󰐊"}
+              :class "play"))
+            (button 
+              :onclick "playerctl next"
+              :class "next" "󰼧")))))))
+
+(defwidget normalcover [] 
+  (box 
+    :width 300 
+    :height 300
+    (box
+      :halign "center"
+      :valign "center"
+      :class "recordcover unround"
+      :width  280
+      :height 280
+      :style "background-image: url('${pcover}');")))
+    
+
+(defwidget dischand [] 
+  (overlay 
+    (box 
+      :width 300 
+      :height 300)
+    (box
+      :halign "center"
+      :valign "center"
+      :class "recordshadow"
+      :width 250
+      :height 250) 
+    (transform
+      :transform-origin-x "50%"
+      :transform-origin-y "50%"
+      :rotate {powersaving ? 0 : recordanim.disc}
+      (box 
+        :halign "center"
+        :valign "center"
+        :class "recordcover ${powersaving ? 'unround' : ''}"
+        :width  250
+        :height 250
+        :style "background-image: url('${pcover}');"))
+    (box 
+      :style {powersaving ? "opacity: 0;" : ""}
+      :valign "center"
+      :halign "center"
+      :class "recordcenter")
+    (box 
+      :style {powersaving ? "opacity: 0;" : ""}
+      :valign "center"
+      :halign "center"
+      :class "recordcentercenter")
+    (transform
+      :transform-origin-x 269
+      :transform-origin-y 56
+      :rotate {recordanim.hand}
+      (box
+        :visible {!powersaving}
+        (image 
+          :style "margin-top: 15px;"
+          :path "./assets/icons/recordhand.svg"
+          :valign "start"
+          :halign "end"
+          :image-width 130)))))
+
+
+(defwidget minirecord []
+  (revealer
+    :reveal {
+      (playerctl.status == "Playing" || playerctl.status == "Paused") && 
+      (playerctl.song != "" && playerctl.artist != "")
+    }
+    :transition "crossfade"
+    (box :halign "end" :class "music-bar"
+      (eventbox
+        :onclick "scripts/toggle_musicplayer.sh"
+        (transform
+          :transform-origin-x "50%"
+          :transform-origin-y "50%"
+          :rotate {recordanim.disc}
+          (image
+            :class "music-bar2"
+            :path "./assets/icons/note.svg"
+            :image-width 22
+            :image-height 22))))))
+
+
+
+(defwidget closermusicplayer [window]
+  (eventbox :onclick "eww close ${window}-closer && scripts/toggle_musicplayer.sh &"))
+

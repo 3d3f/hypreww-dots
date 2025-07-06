@@ -1,0 +1,17 @@
+* {
+	primary: #4edad6;
+	onBackground: #e1e3e2;
+	background: #191c1c;
+	primaryContainer: #00504e;
+	onPrimary: #003736;
+    onPrimaryContainer: #6ff7f3;
+	surface: #191c1c;
+	secondary: #b0ccca;
+	tertiary: #b2c8e8;
+	error: #ffb4a9;
+	onSecondary: #1b3534;
+	secondary: #b0ccca;
+    surfaceVariant: #3f4948;
+	onSurface: #e1e3e2;
+}
+

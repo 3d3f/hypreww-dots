@@ -1,0 +1,63 @@
+@import "/home/fede/.config/eww/colors.scss";
+
+.launcher-box {
+    background-color: $surface;
+    padding: 1rem;
+    color: $onSurface;
+    box-shadow: 0 0 4px 2px $shadow;
+    margin: 0.5rem;
+    box-shadow: 0 0 0 0px;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+}
+
+.launcher-scroll {
+    min-height: 30rem;
+    min-width: 27rem;
+    margin-top: 1rem;
+}
+
+.launcher-item {
+    color: $onSurface;
+    padding: 0.25rem;
+    border-radius: 2rem;
+    transition: 0.3s;
+}
+
+.launcher-item:hover {
+    background-color: mix($primary, $surface, 80%);
+    color: $surface;
+    padding-left: 02rem;
+}
+
+.launcher-search {
+    background-color: $surfaceVariant;
+    border-radius: 2rem;
+    padding: 0.5rem;
+}
+
+.launcher-search-icon {
+    font-size: 1.5rem;
+    margin-left: 0.3rem;
+}
+
+.launcher-search-input {
+    font-size: 1.25rem;
+    margin-left: 1rem;
+}
+
+.launcher-app-label {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    font-weight: normal;
+
+}
+
+.launcher-category {
+    color: $primary;
+    font-size: 1rem;
+    margin: 0.3rem;
+}

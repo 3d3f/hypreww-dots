@@ -1,0 +1,83 @@
+* {
+    border: unset;
+}
+
+:root {
+    --bg-color:            #191c1c;
+    --border-color:        #191c1c;
+    --border-color-active: #4edad6;
+    --bg-color-hover:      #3f4948;
+    --index-border-color:  rgba(20,170,170,0.7);
+    --border-radius:       25px;
+}
+
+.client-image {
+    margin: 10px;
+}
+
+.client {
+    font-size: 16px;
+    font-weight: normal;
+
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    border: 3px solid var(--bg-color-hover);
+}
+
+.client:hover {
+    background-color: none;
+    border: 3px solid #4edad6;
+}
+
+.client_active {
+    border: 3px solid var(--border-color-active);
+}
+
+
+.workspace {
+    font-size: 24px;
+    font-weight: bold;
+
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    border: 0px solid var(--border-color);
+}
+
+.workspace:hover {
+    background-color: var(--bg-color);
+}
+
+.workspace_special {
+    border: 0px solid rgba(0, 255, 0, 0.4);
+}
+
+.workspace_active {
+    border: 3px solid var(--border-color-active);
+}
+
+.monitor {
+    padding: 2px;
+
+    border-radius: var(--border-radius);
+    background-color: rgba(0,0,0,0.1);
+    border: 0px solid var(--border-color);
+}
+
+.monitor:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.window_active {
+    border: 3px solid var(--border-color-active);
+}
+
+.index {
+    margin: 3px;
+    padding: 2px 4px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    border: 0px solid var(--index-border-color);
+}

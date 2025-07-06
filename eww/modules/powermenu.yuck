@@ -1,0 +1,91 @@
+;;WINDOWS
+
+(defwindow powermenu
+    :monitor 0
+    :stacking "fg"
+    :namespace "eww2"
+    :geometry (geometry 
+                    :y "0%"
+                    :anchor "top center"
+                    :width "2px"
+                    :height "2px")
+    (powermenu)
+)
+
+(defwindow powercorner-left
+  :stacking "fg"
+      :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "17.4%"
+              :y "-0.1%"
+              :anchor "top left")
+  (box :class "powercorner left")  
+)
+
+(defwindow powercorner-right
+
+  :stacking "fg"
+      :namespace "eww2"
+  :monitor 0
+  :geometry (geometry 
+              :x "17.4%"
+            :y "-0.1%"
+              :anchor "top right")
+  (box :class "powercorner right")  
+)
+
+(defwindow powermenu-closer
+    :monitor 0
+    :geometry (geometry :width "100%" :height "100%")
+    :stacking "fg"
+    :focusable false
+          :namespace "eww3"
+    (closerpowermenu :window "powermenu")
+)
+
+;;WIDGETS
+
+(defwidget powermenu []
+    (eventbox
+      (box :orientation "h" :class "powermenu-box" :halign "center" :valign "center"
+
+        ;; Power off
+        (box :orientation "v" :space-evenly false
+          (button :onclick "systemctl poweroff" :class "powerbox"
+            (label :text "󰐥" :class "powerlabel"))
+          (label :text "Power off" :class "powertext"))
+
+        ;; Reboot
+        (box :orientation "v" :space-evenly false
+          (button :onclick "systemctl reboot" :class "rebootbox"
+            (label :text "󰜉" :class "rebootlabel"))
+          (label :text "Reboot" :class "reboottext"))
+
+        ;; Lock
+        (box :orientation "v" :space-evenly false
+          (button :onclick "sleep 0.1 && hyprlock & /home/fede/.config/eww/scripts/powermenu.sh &" :class "lockbox"
+            (label :text "" :class "locklabel"))
+          (label :text "Lock" :class "locktext"))
+
+        ;; Suspend
+        (box :orientation "v" :space-evenly false
+          (button :onclick "sleep 0.1 && hyprlock & systemctl suspend & /home/fede/.config/eww/scripts/powermenu.sh &" :class "suspendbox"
+            (label :text "󰤄" :class "suspendlabel"))
+          (label :text "Suspend" :class "suspendtext"))
+
+        ;; Sign out
+        (box :orientation "v" :space-evenly false
+          (button :onclick "hyprctl dispatch exit" :class "signbox"
+            (label :text "󰗼" :class "signlabel"))
+          (label :text "Sign out" :class "signtext"))
+      )
+    )
+  )
+
+
+(defwidget closerpowermenu [window]
+  (eventbox 
+    :onclick "eww close ${window} && eww close ${window}-closer && scripts/powermenu.sh close &"
+    )
+)

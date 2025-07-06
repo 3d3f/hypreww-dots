@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# @requires: pamixer
+
+if [[ $1 == "status" ]]; then
+  if pamixer --default-source --get-mute | grep -q "false"; then
+    echo yes
+  else
+    echo no
+  fi
+fi
+
+if [[ $1 == "toggle" ]]; then
+  if pamixer --default-source --get-mute | grep -q "false"; then
+    pamixer --default-source --mute
+  else
+    pamixer --default-source --unmute
+  fi
+fi

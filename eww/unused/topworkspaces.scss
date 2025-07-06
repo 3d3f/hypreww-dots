@@ -1,0 +1,64 @@
+
+@import "/home/fede/.config/eww/colors.scss";
+
+
+.topworkspaces {
+  min-height: dpi(3px);
+  widget {
+    .indicator {
+      opacity: 0.3;
+      transition-duration: 0.2s;
+
+      &.focused {
+        opacity: 1;
+      }
+      &.empty {
+        opacity: 0;
+      }
+      &.round-right {
+        border-bottom-right-radius: dpi(10px);
+      }
+      &.round-left {
+        border-bottom-left-radius: dpi(10px);
+      }
+
+      &:not(.focused):hover {
+        opacity: 0.6;
+      }
+      &.empty:hover {
+        opacity: 0.2;
+      }
+    }
+
+    &:nth-child(1) .indicator {
+      background: $primary;
+    }
+    &:nth-child(2) .indicator {
+      background: $primary;
+    }
+    &:nth-child(3) .indicator {
+      background: $primary;
+    }
+    &:nth-child(4) .indicator {
+      background: $primary;
+    }
+    &:nth-child(5) .indicator {
+      background: $primary;
+    }
+    &:nth-child(6) .indicator {
+      background: $primary;
+    }
+    &:nth-child(7) .indicator {
+      background: $primary;
+    }
+    &:nth-child(8) .indicator {
+      background: $primary;
+    }
+    &:nth-child(9) .indicator {
+      background: $primary;
+    }
+    &:nth-child(10) .indicator {
+      background: $primary;
+    }
+  }
+}

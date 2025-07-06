@@ -1,0 +1,102 @@
+; VARS
+
+(defvar ANIM_DURATION "300ms")
+
+(defvar open_launcher false)
+(defvar open_powermenu false)
+(defvar open_tray false)
+(defvar open_control_center false)
+(defvar open_info_center false)
+
+(defvar recorder_audio false)
+(defvar recorder_region false)
+
+(defvar bar_visible true)
+(defvar bar_hover false)
+
+(defvar nightlight false)
+
+; POLLS
+
+(defpoll mic_status :interval "0.5s" "scripts/mic status")
+
+(defpoll bluetooth_powered :interval "1s" :initial "off"
+  "bluetoothctl show | grep 'Powered' | awk '{print $2}'")
+
+(defpoll bluetooth_icon :interval "1s" :initial ""
+  "scripts/bluetooth.sh --icon")
+
+(defpoll bluetooth_status :interval "1s" :initial "Bluetooth"
+  "scripts/bluetooth.sh --status")
+
+(defpoll recording :interval "1s"
+"pgrep 'wf-recorder' || echo false")
+
+(defpoll br_icon :interval "0.5s" "scripts/getBrightness icon")
+(defpoll br :interval "0.5s" "scripts/getBrightness br")
+
+(defpoll completeday :interval "1h" "date '+%A, %d %B'")
+(defpoll lithour :interval "30m" "date +%H")
+(defpoll litmin :interval "30s" "date +%M")
+(defpoll calendar_day :interval "10h" "date '+%d'")
+(defpoll calendar_month :interval "10h" "date '+%m")
+(defpoll calendar_year :interval "10h" "date '+%Y'")
+(defpoll date :interval "30s" "date '+%d %b, %I:%M %p'")
+(defpoll shortday :interval "1h" "date '+%d %b %y'")
+(defpoll weekday :interval "24h" "date +%A")
+
+
+
+; LISTENS
+
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "..." "bash ~/.config/eww/scripts/get-active-workspace")
+(deflisten urgent_workspace :initial "..." "bash ~/.config/eww/scripts/get-urgent-workspaces")
+
+(deflisten volume :initial "0"
+"scripts/volume.sh")
+
+(deflisten network :initial '{"essid": "lo", "signal": ""}'
+"scripts/network.sh")
+
+(deflisten current_theme :initial "dark" 
+"/home/fede/.config/hypr/scripts/theme/material/material.py --current")
+
+(deflisten notifications :initial '{"count": 0, "notifications": [], "popups": []}'
+"scripts/notifications.sh current")
+
+(deflisten do-not-disturb :initial false
+  "scripts/notifications.sh getdnd")
+
+(deflisten has-notifications :initial false
+  "scripts/notifications.sh has_notifications")
+
+
+;; Weather
+(defpoll weather-icon :interval "1h" "scripts/weather icon")
+(defpoll weather-temp :interval "1h" "scripts/weather current_temp")
+(defpoll weather-desc :interval "1h" "scripts/weather weather_desc")
+(defpoll weather-color :interval "1h" "scripts/weather hex")
+(deflisten weather :initial "null" "scripts/weather.py")
+
+(defpoll temp :interval "3s" "~/.config/eww/scripts/temp.sh get")
+
+;; Music
+(defpoll music-art :interval "1s" "scripts/mediacontrol coverloc")
+(defpoll music-title :interval "1s" "scripts/mediacontrol title")
+(defpoll music-artist :interval "1s" "scripts/mediacontrol artist")
+(defpoll music-toggle :interval "1s" "scripts/mediacontrol statusicon")
+(defpoll music-status :interval "1s" "scripts/mediacontrol status")
+(defpoll music-position :interval "1s" "scripts/mediacontrol position")
+(defpoll music-length :interval "1s" "scripts/mediacontrol length")
+(defpoll music-positions :interval "1s" "scripts/mediacontrol positions")
+(defpoll music-lengths :interval "1s" "scripts/mediacontrol lengths")
+(defpoll music-shuffle-color :interval "1s" "scripts/mediacontrol shufflecolor")
+(defpoll music-shuffle-status :interval "1s" "playerctl -p spotify shuffle")
+(defpoll music-loop-icon :interval "1s" "scripts/mediacontrol loopicon")
+(defpoll music-loop-color :interval "1s" "scripts/mediacontrol loopcolor")
+(defpoll music-loop-status :interval "1s" "playerctl -p spotify loop")
+(defvar  music-rev false)
+
+(deflisten  mpris     `scripts/mpris.py`)
+(deflisten  positions `scripts/positions.py`)

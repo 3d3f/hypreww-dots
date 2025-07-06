@@ -1,0 +1,145 @@
+.media { 
+    .player {
+      background-color: $background;
+      border-radius: 1.3rem;
+      border: 0rem solid $surfaceVariant;
+      margin-top: 1.3rem;
+      .cover {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 1.3rem;
+        min-height: 2rem;
+        min-width: 2rem;
+
+  
+        .gradient {
+          border-radius: 1.3rem;
+          background: transparentize($surfaceVariant,0.8);
+          text-shadow: 0 0 0px black;
+  
+          .info {
+            padding: 1rem 1rem 0 1rem;
+  
+            .title {
+              font-size: 1.2rem;
+              font-weight: bolder;
+            }
+  
+            .artist,
+            .album {
+              font-size: 1.1rem;
+              color: $onBackground;
+            }
+          }
+          .progress scale trough highlight {
+            background-color: $primary;
+            border-radius: 1.5rem;
+          }
+  
+          .progress scale trough {
+            background-color: rgba($tertiary, 0.3);
+            box-shadow: 0 0 0px 0px rgba(black, 0.5);
+            min-height: 0.4rem;
+            min-width: 0.1rem;
+            margin: 0.2rem 1rem;
+            border-radius: 1.5rem;
+          }
+  
+          .inferior {
+            margin: 0.5rem 1rem 0.5rem 1rem;
+
+            .position {
+              font-size: 0.9rem;
+              min-width: 1rem;
+              color: $surface;
+              background-color: $surface;
+              border-radius: 1.1rem;
+              padding-left:0.5rem;
+            }
+  
+            .time {
+              font-size: 1rem;
+              font-weight: bolder;
+              color: $onBackground;
+              border-radius: 1.1rem;
+              padding-right: 0.5rem;
+            }
+            .app {
+              font-size: 1.2rem;
+              margin-right: 1.4rem;
+  
+              &.spotify {
+                color: $primary;
+              }
+  
+              &.brave {
+                color: $primary;
+              }
+  
+              &.firefox {
+                color: $tertiary;
+              }
+            }
+  
+            .controls {
+              border-radius: 1.1rem;
+              background-color: $surface;
+              padding-right: 1.2rem;
+              .previous,
+              .next {
+                font-size: 1.5rem;
+                color: $onBackground;
+  
+                &.canGoPrevious {
+                  color: $onBackground;
+                }
+                &.canGoNext {
+                  color: $onBackground;
+                }
+              }
+  
+              .toggle {
+                font-size: 1.5rem;
+                color: $surface;
+                &.canPlay,
+                &.canPause {
+                  color: $onBackground;
+                }
+              }
+  
+              .shuffle,
+              .loop {
+                font-size: 1.5rem;
+  
+                &.on {
+                  color: $primary;
+                }
+                &.off {
+                  color: $onSurfaceVariant;
+                }
+              }
+            }
+          }
+        }
+      }
+      .sidebar {
+        padding: 1rem;
+        .slider scale trough highlight {
+          background-image: linear-gradient(
+            to right,
+            darken($primary, 15%),
+            $primary
+          );
+          border-radius: 1.5rem;
+        }
+  
+        .slider scale trough {
+          background-color: $surface;
+          min-width: 0.5rem;
+          border-radius: 1.5rem;
+        }
+      }
+    }
+  }
+  

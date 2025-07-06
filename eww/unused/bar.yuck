@@ -1,0 +1,59 @@
+
+
+(defwidget bar []
+(eventbox :onhoverlost "scripts/hidebar.sh"
+    (box :class "bar-widget" :orientation "h" :space-evenly true 
+        :onhoverlost "eww update bar_hover=false && scripts/hidebar.sh"
+        (box :orientation "h" :space-evenly false :halign "start"
+            (logo) 
+            (separator)
+            (killactive)
+            (separator)
+            (hidebutton)
+            (separator)
+            (clock)
+            (musicbar)
+        )
+
+        (box :orientation "h" :space-evenly false :halign "center"
+            (workspaces)
+        )
+
+        (box :orientation "h" :space-evenly false :halign "end"
+            (tray)
+            (tray_button)
+            (separator)
+            (screenshot-bar)
+            (separator)
+            (clipboard)
+            (separator)
+            (picker)
+            (separator)
+            (indicator)
+            (separator)
+            (battery)
+            (power)
+        )
+    )
+)
+)
+
+(defwindow barcorner-left
+  :stacking "bg"
+  :monitor 0
+  :geometry (geometry 
+              :x "0"
+              :y "0px"
+              :anchor "top left")
+  (box :class "barcorner left")  
+)
+
+(defwindow barcorner-right
+  :stacking "bg"
+  :monitor 0
+  :geometry (geometry 
+              :x "0"
+              :y "0px"
+              :anchor "top right")
+  (box :class "barcorner right")  
+)

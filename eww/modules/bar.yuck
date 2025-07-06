@@ -1,0 +1,55 @@
+;;WINDOWS
+
+(defwindow bar
+    :staking "overlay"
+    :monitor '["0", "HDMI-A-1", "PHL 345B1C", 0]'
+    :geometry (geometry :width "100%"
+                        :anchor "top center"
+                    )
+    :exclusive "true"
+    :focusable "false"
+    :namespace "eww1"
+    (bar)
+)
+
+(defwindow barcorner-left
+  :stacking "bg"
+  :monitor 0
+  :geometry (geometry 
+              :x "0"
+              :y "0px"
+              :anchor "top left")
+  (box :class "barcorner left")  
+)
+
+(defwindow barcorner-right
+  :stacking "bg"
+  :monitor 0
+  :geometry (geometry 
+              :x "0"
+              :y "0px"
+              :anchor "top right")
+  (box :class "barcorner right")  
+)
+
+;;WIDGETS
+(defwidget bar []
+  (box :class "bar-widget" :orientation "h" :space-evenly true
+    (box :orientation "h" :space-evenly false :halign "start"
+      (launcher)
+      (workspaces)
+    )
+    (box :orientation "h" :space-evenly false :halign "center" :class "centerbox"
+      (wallbar)
+      (clock)
+      (killactive)
+    )
+    
+    (box :orientation "h" :space-evenly false :halign "end"
+      (minirecord)
+      (tray)
+      (indicator)
+      (battery)
+    )
+  )
+)

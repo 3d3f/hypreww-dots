@@ -1,0 +1,137 @@
+@import "~/.config/hypr/scripts/theme/material/colors/colors-rofi-dark.rasi"
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    //hover-select:				 true;
+	//me-select-entry:			 "";
+	//me-accept-entry:			 "MousePrimary";
+}
+
+* {
+	font:				 	"Inter 17";
+}
+
+element-text, element-icon , mode-switcher {
+  text-color:       @onBackground;
+}
+
+window {
+    enabled:                     true;
+    fullscreen:                  false;
+    location:                    north;
+    anchor:                      south;
+    width:                       460px;
+    height:                      457px;
+    margin:			                 4px 0px 0px 0px;
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      2px;
+    border-radius:               40px;
+    border-color:                transparent;
+    background-color: 		       rgba(0, 0, 0, 0.1);
+}
+
+mainbox {
+    enabled:                     true;
+    children:                    ["listview-split" ];
+    background-color: 		       rgba(0, 0, 0, 0.1);
+}
+
+
+/** We add an extra child to this is PREVIEW=true */
+listview-split {
+  orientation: horizontal;
+  children: [listview];
+}
+
+listview {
+    enabled:                     true;
+    columns:                     4;
+    lines:                       4;
+    spacing:                     -35px;
+    padding:                     0px 0px 0px 0px;
+    cycle:                       true;
+    dynamic:                     false;
+    scrollbar:                   false;
+    /**layout:                   vertical; */
+    flow:                        horizontal;
+    reverse:                     false;
+    fixed-height:                false;
+    fixed-columns:               false;
+    cursor:                      "default";
+    background-color:            transparent;
+    text-color:                  @onBackground;
+    border-radiu:                40px;
+}
+
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    spacing:                     20px 20px 20px 20px;
+    cursor:                      pointer;
+    background-color:            transparent;
+    text-color:                  transparent;
+    border-radius: 40px;
+}
+
+element selected.normal {
+    background-color:            white / 0%;
+    text-color:                  transparent;
+    border-radius:               25px;
+}
+
+element-icon {
+	border-radius:				 0px;
+    size:                        200px;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  transparent;
+    padding:		                 -10px -35px -10px -20px;  // per spostare icone //
+}
+
+element-text {
+    padding:                     -25px -25px -25px -25px;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  transparent;
+}
+
+/**
+ * Launching rofi with environment PREVIEW set to true
+ * will split the screen and show a preview widget.
+ */
+@media ( enabled: env(PREVIEW, false)) {
+  /** preview widget */
+
+   window {
+     width:                      80%;
+   }
+
+  icon-current-entry {
+    expand:                      true;
+    size:                        68.5%;               // dimensioni immagine grande //
+    background-color:            transparent;
+    text-color:                  inherit;
+    border:                      0px 10px 0px 30px;  // per spostare immagine grande //
+    border-color:                transparent;
+  }
+
+  listview-split {
+    children: [listview, icon-current-entry];
+    background-color:            transparent;
+    text-color:                  inherit;
+    spacing:                   -20px;
+    margin:                     0px;
+  }
+
+  listview {
+    columns:                     4;
+    lines:                       4;
+  }
+  element-icon {
+    size:                        160px;
+  }
+
+}

@@ -1,0 +1,3 @@
+#!/bin/bash
+# Trova workspace special (-99 tipico, ma può variare)
+hyprctl workspaces -j | jq '.[] | select(.special == true) | .id' || echo "-99"
