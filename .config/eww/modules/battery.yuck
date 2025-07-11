@@ -3,6 +3,7 @@
 (defwidget battery []
   (button :onclick "scripts/powermenu.sh &"
           :onrightclick "scripts/hideshowbar.sh"
+          :class "bat-cont"
     (box :class `bat_bar ${EWW_BATTERY.BAT0.capacity < 20 ? "low" : 
                            EWW_BATTERY.BAT0.capacity > 50 ? "high" : "medium"}` 
          :space-evenly false
@@ -44,4 +45,3 @@
     )
   )
 )
-
