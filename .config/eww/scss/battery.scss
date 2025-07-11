@@ -13,16 +13,14 @@
 .bat-number {
     font-size: 1.10rem;
     font-weight: 700;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    margin: 0rem 0rem 0rem -6.6rem;
+    margin: 0rem 0rem 0rem -6.2rem;
     
     /* Colore predefinito (medium) */
     color: $onPrimary; 
     
     /* Stato basso (<20%) */
     &.low {
-        color: #dd2c00;
+        color: $onPrimary;
     };
     
     /* Stato alto (>50%) */
@@ -36,20 +34,26 @@
     };
 }
 
+.bat-cont {
+   background-color: lighten($primaryContainer, 20);
+   border-radius: 2rem;
+   padding: 0.1rem 0.28rem 0rem 0.3rem;
+}
+
 .bat_bar scale trough {
 	all: unset;
     background-color: lighten($primaryContainer, 20);
 	border-radius: 2rem;
-	min-height:  1.6rem;
+	min-height:  1.65rem;
 	min-width: 6.5rem;
-    border: 0.2rem solid lighten($primaryContainer, 20);
+    border: 0rem solid lighten($primaryContainer, 20);
     margin: 0rem 0 0 0rem;
+    padding: 0rem 0 0rem 0;
 }
 
 .bat_bar, scale trough highlight {
 	all: unset;
     border-radius: 0rem;    
-    border-right: none;
 }
 
 // Default style
@@ -87,7 +91,7 @@ background-color: $onBackground;
 	font-size : 1.15rem;
     color: $onPrimary;
     background-color: transparent;
-    margin-left: -11.9rem;
+    margin-left: -11.7rem;
 }
 
 .powericon {
